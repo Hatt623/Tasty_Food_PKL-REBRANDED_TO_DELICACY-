@@ -46,7 +46,7 @@ class FrontendController extends Controller
     {
         $about = About::first();
         $news = news::all();
-        $featurednews = news::first();
+        $featurednews = news::latest()->first();
         return view('news', compact('news','featurednews','about'));
 
     }

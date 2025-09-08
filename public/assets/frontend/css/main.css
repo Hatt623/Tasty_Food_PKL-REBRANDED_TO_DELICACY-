@@ -107,14 +107,23 @@ h6 {
       letter-spacing: -0.02em;
       margin-bottom: .75rem;
     }
+
     .news-hero .lead {
       color: #5f6b7a;
       margin-bottom: 1.25rem;
     }
 
+    .news-hero .btn-news-hero {
+      background-color: var(--default-color);
+      color: var(--contrast-color);
+      font-weight: 600;
+      padding: .625rem 1.25rem;
+      transition: background-color .3s ease;
+    }
+
     /* Cards */
     .news-card .card-img-top {
-      height: 180px;
+      height: 200px;
       object-fit: cover;
     }
     .news-card {
@@ -131,8 +140,22 @@ h6 {
       gap: .5rem;
       margin-top: .5rem;
     }
+
+    .card-actions a{
+      color: #ffc107;
+      font-weight: 300;
+    }
+
     .btn-link-more {
       padding: .375rem .75rem;
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+    .btn-link-more:hover {
+      color: var(--contrast-color);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
     }
 
     /* Section headings */
@@ -292,7 +315,7 @@ h6 {
 }
 
 .featured-card-child{
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .featured-menu {
@@ -301,7 +324,7 @@ h6 {
 
 .featured-img {
   position: absolute;
-  top: -60px;             
+  top: -100px;             
   left: 50%;             
   transform: translateX(-50%);
   width: 200px;
@@ -313,7 +336,7 @@ h6 {
 
 @media (max-width: 640px) {
   .featured-card {
-    margin-top: 50px;
+    margin-top: 100px;
   }
 }
 
@@ -1154,16 +1177,27 @@ section,
   position: relative;
 }
 
-.section-title h2 {
-  font-size: 13px;
-  letter-spacing: 1px;
-  font-weight: 400;
-  padding: 0;
-  margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  display: inline-block;
-  text-transform: uppercase;
-  font-family: var(--default-font);
+.section-title-hr{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 125px;
+  height: 3px;
+  background-color: var(--default-color);
+}
+
+.section-title h5{
+  margin-left: 250px;
+  margin-right: 250px;
+
+}
+
+@media (max-width: 1199px) {
+  .section-title h5{
+  margin-left: auto;
+  margin-right: auto;
+
+}
 }
 
 .section-title p {
@@ -1224,7 +1258,7 @@ section,
 .hero .btn-get-started {
   color: var(--contrast-color);
   background: var(--default-color);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 15px;
   letter-spacing: 1px;
   display: inline-block;
@@ -1236,8 +1270,7 @@ section,
 }
 
 .hero .btn-get-started:hover {
-  color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: var(--accent-color);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 
@@ -2025,36 +2058,56 @@ section,
   }
 }
 
+.btn-load-more {
+  color: var(--contrast-color);
+  background: var(--default-color);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 12px 28px;
+  padding-left: 50px;
+  padding-right: 50px;
+  transition: 0.5s;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
 /*--------------------------------------------------------------
 # Contact Section mine
 --------------------------------------------------------------*/
 .contact-section {
-      border-radius: 12px;
-      padding: 40px;
-    }
-    .form-control {
-      border-radius: 8px;
-    }
-    .btn-dark {
-      border-radius: 8px;
-      padding: 10px 24px;
-    }
-    .contact-info i {
-      font-size: 1.5rem;
-      color: #000;
-      margin-right: 12px;
-    }
-    .contact-info .info-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .map-container iframe {
-      border: 0;
-      border-radius: 12px;
-      width: 100%;
-      height: 300px;
-    }
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.btn-dark {
+  border-radius: 8px;
+  padding: 10px 24px;
+}
+
+.contact-info i {
+  font-size: 1.5rem;
+  color: #000;
+  margin-right: 12px;
+}
+
+.contact-info .info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.map-container iframe {
+  border: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: 300px;
+}
+  
 
 /*--------------------------------------------------------------
 #Akhir  Contact Section mine

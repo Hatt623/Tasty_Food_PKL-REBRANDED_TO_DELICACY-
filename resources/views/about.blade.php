@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="left copy">
                 <h2>Misi</h2>
-                <p class="lead" data-aos="fade-up">
+                <p class="lead" data-aos="fade-up" data-aos-delay="100">
                     {{$about->mission}}
                 </p>
                 </div>

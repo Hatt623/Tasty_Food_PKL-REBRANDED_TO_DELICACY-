@@ -9,6 +9,10 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        Data Kontak
+                    </div>
+
                     <div class="card-body">
                         <div class="table table-responsive">
                             <table class="table" id="datacontact">

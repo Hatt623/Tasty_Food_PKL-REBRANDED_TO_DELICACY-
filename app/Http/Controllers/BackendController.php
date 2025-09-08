@@ -7,7 +7,6 @@ use App\Models\News;
 use App\Models\Product;
 use App\Models\Contact;
 use App\Models\About;
-// use App\Models\User;
 
 class BackendController extends Controller
 {
@@ -19,10 +18,9 @@ class BackendController extends Controller
         $totalNews = News::count();
         $totalProducts = Product::count();
         $totalContacts = Contact::count();
-        // $totalUsers = user::all();
+        $contacts = Contact::all();
 
-        return view('backend.index', compact('totalNews', 'totalProducts', 'totalContacts')); 
-        // ,'totalUsers'  
+        return view('backend.index', compact('totalNews', 'totalProducts', 'totalContacts', 'contacts' )); 
     }
    
 }

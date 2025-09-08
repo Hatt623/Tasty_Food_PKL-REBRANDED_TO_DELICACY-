@@ -14,7 +14,7 @@
                                <div class="mb-2">
                                     <label for="about">Tentang Restoran</label>
 
-                                    <textarea name="about" cols="30" rows="10" value="{{$about->about}}" class="form-control @error ('about') is-invalid @enderror">{{old ('about')}}</textarea>
+                                    <textarea name="about" cols="30" rows="10" value="{{$about->about}}" class="form-control @error ('about') is-invalid @enderror">{{$about->about}}</textarea>
                                     @error('about')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{$message}}</strong>
@@ -25,7 +25,7 @@
                                 <div class="mb-2">
                                     <label for="vision">Visi Restoran</label>
 
-                                    <textarea name="vision" cols="30" rows="10" value="{{$about->vision}}" class="form-control @error ('vision') is-invalid @enderror">{{old ('vision')}}</textarea>
+                                    <textarea name="vision" cols="30" rows="10" value="{{$about->vision}}" class="form-control @error ('vision') is-invalid @enderror">{{$about->vision}}</textarea>
                                     @error('vision')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{$message}}</strong>
@@ -36,7 +36,7 @@
                                 <div class="mb-2">
                                     <label for="mission">Misi Restoran</label>
 
-                                    <textarea name="mission" cols="30" rows="10" value="{{$about->mission}}" class="form-control @error ('mission') is-invalid @enderror">{{old ('mission')}}</textarea>
+                                    <textarea name="mission" cols="30" rows="10" value="{{$about->mission}}" class="form-control @error ('mission') is-invalid @enderror">{{$about->mission}}</textarea>
                                     @error('mission')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{$message}}</strong>

@@ -30,8 +30,8 @@
                     </div>
                     <div class="col-md-6">
                         <h2 class="section-title">{{ $featurednews->title }}</h2>
-                        <p class="lead">{{ $featurednews->description }}</p>
-                        <a href="#" class="btn btn-dark">BACA SELENGKAPNYA</a>
+                        <p class="lead">{{Str::limit ($featurednews->description,500) }}</p>
+                        <a href="#" class="btn-news-hero">BACA SELENGKAPNYA</a>
                     </div>
                 </div>
             </div>
@@ -48,16 +48,16 @@
                 </div>
 
                 <div class="row g-4">
-                    @foreach ($news as $data)
-                    <div class="col-12 col-sm-6 col-lg-3 news-item" style="display: {{ $loop->index < 8 ? 'block' : 'none' }};">
+                    @foreach ($news as $index =>  $data)
+                    <div class="col-12 col-sm-6 col-lg-3 news-item" style="display: {{ $loop->index < 8 ? 'block' : 'none' }};" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
                         <div class="card h-100 news-card">
                             <img src="{{ Storage::url($data->image) }}" class="card-img-top" alt="{{ $data->title }}">
                             <div class="card-body">
                                 <h5 class="card-title mb-2">{{ $data->title }}</h5>
-                                <p class="card-text text-muted mb-3">{{ $data->description }}</p>
+                                <p class="card-text text-muted mb-3">{{ Str::limit ($data->description,80) }}</p>
                                 <div class="card-actions">
-                                    <a href="#" class="btn btn-outline-dark btn-sm btn-link-more">Baca selengkapnya</a>
-                                    <button type="button" class="btn btn-sm btn-light border">
+                                    <a href="#" class="stretched-link small text-decoration-none">Baca selengkapnya</a>
+                                    <button type="button" class="btn-link-more btn btn-sm btn-light ">
                                         <i class="bi bi-three-dots"></i>
                                     </button>
                                 </div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#" id="loadMoreBtn" class="btn btn-dark">
+                    <a href="#" id="loadMoreBtn" class="btn-load-more">
                         Lihat Lebih Banyak
                     </a>
                 </div>

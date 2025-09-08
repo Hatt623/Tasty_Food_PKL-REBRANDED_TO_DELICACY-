@@ -26,7 +26,7 @@
                                 <div class="mb-2">
                                     <label for="description">Deskripsi Produk</label>
 
-                                    <textarea name="description" cols="30" rows="10" value="{{$product->description}}" class="form-control @error ('description') is-invalid @enderror">{{old ('description')}}</textarea>
+                                    <textarea name="description" cols="30" rows="10" value="{{$product->description}}" class="form-control @error ('description') is-invalid @enderror">{{$product->description}}</textarea>
                                     @error('description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{$message}}</strong>

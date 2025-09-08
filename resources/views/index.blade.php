@@ -13,7 +13,7 @@
                     <h2 data-aos="fade-up">Tasty Food</h2>
                     <p data-aos="fade-up" data-aos-delay="100">{{$about->about}}</p>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#" class="btn-get-started">TENTANG KAMI</a>
+                        <a href="#" class="btn-get-started">TENTANG KAMI</a>
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
@@ -33,7 +33,7 @@
             <p><span class="description-title">TENTANG KAMI</span></p>
            
             <h5>{{$about->about}}</h5>
-            <hr>
+            <hr data-aos="fade-up" class="section-title-hr">
         </div>
         <!-- Akhir Tentang kami -->
 
@@ -59,7 +59,7 @@
                                 <div class="featured-card-child">
                                     <h2 class="card-title mb-2">{{ $product->name }}</h2>
                                     <p class="card-text small mb-3 mt-3">
-                                        {{ Str::limit($product->description, 80) }}
+                                        {{ Str::limit($product->description, 120) }}
                                     </p>
                                 </div>
                             </div>
@@ -89,21 +89,26 @@
                 {{-- Featured card kiri --}}
                 @if($featured)
                     <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img
-                        src="{{ Storage::url($featured->image) }}"
-                        class="card-img-top"
-                        alt="{{ $featured->title }}"
-                        >
-                        <div class="card-body">
-                        <h5 class="card-title">{{ $featured->title }}</h5>
-                        <p class="card-text">{{ Str::limit($featured->description, 150) }}</p>
-                        <a href="#"
-                            class="stretched-link text-decoration-none">
-                            Baca selengkapnya →
-                        </a>
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img
+                            src="{{ Storage::url($featured->image) }}"
+                            class="card-img-top"
+                            alt="{{ $featured->title }}"
+                            >
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $featured->title }}</h5>
+                                <p class="card-text">{{ Str::limit($featured->description, 150) }}</p>
+                                <div class="card-actions">
+                                    <a href="#"
+                                    class="stretched-link text-decoration-none">
+                                    Baca selengkapnya
+                                    </a>
+                                     <button type="button" class="btn-link-more btn btn-sm btn-light ">
+                                        <i class="bi bi-three-dots"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 @endif
 
@@ -112,23 +117,27 @@
                     <div class="row gy-4">
                     @foreach($smallCards as $index => $post)
                         <div class="col-6" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <img
-                            src="{{ Storage::url($post->image) }}"
-                            class="card-img-top"
-                            alt="{{ $post->title }}"
-                            >
-                            <div class="card-body">
-                            <h6 class="card-title mb-2">{{ $post->title }}</h6>
-                            <p class="card-text small mb-0">
-                                {{ Str::limit($post->description, 80) }}
-                            </p>
-                            <a href="#"
-                                class="stretched-link small text-decoration-none">
-                                Baca selengkapnya →
-                            </a>
+                            <div class="news-card card h-100 border-0 shadow-sm">
+                                <img
+                                src="{{ Storage::url($post->image) }}"
+                                class="card-img-top"
+                                alt="{{ $post->title }}"
+
+                                >
+                                <div class="card-body">
+                                    <h6 class="card-title mb-2">{{ $post->title }}</h6>
+                                    <p class="card-text small mb-0">
+                                        {{ Str::limit($post->description, 80) }}
+                                    </p>
+
+                                    <div class="card-actions">
+                                        <a href="#" class="stretched-link small text-decoration-none">Baca selengkapnya</a>
+                                        <button type="button" class="btn-link-more btn btn-sm btn-light">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     @endforeach
                     </div>
@@ -147,124 +156,31 @@
             </div>
 
             <div class="container">
-                <div class="row gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                @foreach($products as $data)
-                    <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm overflow-hidden">
-                        <a href="{{ Storage::url($data->image) }}" class="glightbox">
-                        <img
-                            src="{{ Storage::url($data->image) }}"
-                            alt="Gallery Image"
-                            class="card-img-top img-fluid"
-                            style="object-fit: cover; height: 250px;"
-                        >
-                        </a>
-                    </div>
+                <div class="row gy-4 justify-content-center" >
+                @foreach($products as $index => $data)
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
+                        <div class="card border-0 shadow-sm overflow-hidden">
+                            <a href="{{ Storage::url($data->image) }}" class="glightbox">
+                            <img
+                                src="{{ Storage::url($data->image) }}"
+                                alt="Gallery Image"
+                                class="card-img-top img-fluid"
+                                style="object-fit: cover; height: 250px;"
+                            >
+                            </a>
+                        </div>
                     </div>
                 @endforeach
                 </div>
 
                 <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="400">
-                <a href="{{route('gallery.index')}}" class="btn btn-dark">
-                    Lihat Lebih Banyak
-                </a>
+                    <a href="{{route('gallery.index')}}" class="btn-load-more">
+                        Lihat Lebih Banyak
+                    </a>
                 </div>
             </div>
         </section>
         <!-- alkhir galeri -->
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
-            <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="mb-5">
-            <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
-            </div><!-- End Google Maps -->
-
-            <div class="row gy-4">
-
-            <div class="col-md-6">
-                <div class="info-dataproducts d-flex align-dataproductss-center" data-aos="fade-up" data-aos-delay="200">
-                <i class="icon bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                    <h3>Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
-                </div>
-                </div>
-            </div><!-- End Info dataproducts -->
-
-            <div class="col-md-6">
-                <div class="info-dataproducts d-flex align-dataproductss-center" data-aos="fade-up" data-aos-delay="300">
-                <i class="icon bi bi-telephone flex-shrink-0"></i>
-                <div>
-                    <h3>Call Us</h3>
-                    <p>+1 5589 55488 55</p>
-                </div>
-                </div>
-            </div><!-- End Info dataproducts -->
-
-            <div class="col-md-6">
-                <div class="info-dataproducts d-flex align-dataproductss-center" data-aos="fade-up" data-aos-delay="400">
-                <i class="icon bi bi-envelope flex-shrink-0"></i>
-                <div>
-                    <h3>Email Us</h3>
-                    <p>info@example.com</p>
-                </div>
-                </div>
-            </div><!-- End Info dataproducts -->
-
-            <div class="col-md-6">
-                <div class="info-dataproducts d-flex align-dataproductss-center" data-aos="fade-up" data-aos-delay="500">
-                <i class="icon bi bi-clock flex-shrink-0"></i>
-                <div>
-                    <h3>Opening Hours<br></h3>
-                    <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
-                </div>
-                </div>
-            </div><!-- End Info dataproducts -->
-
-            </div>
-
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
-            <div class="row gy-4">
-
-                <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit">Send Message</button>
-                </div>
-
-            </div>
-            </form><!-- End Contact Form -->
-
-        </div>
-
-        </section><!-- /Contact Section -->
 
     </main>
 @endsection

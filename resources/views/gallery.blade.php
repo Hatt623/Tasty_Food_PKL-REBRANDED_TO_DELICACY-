@@ -33,7 +33,7 @@
                                 src="{{ Storage::url($data->image) }}" 
                                 class="d-block w-100" 
                                 alt="{{ $data->name }}"
-                                style="height: 300px; object-fit: cover;">
+                                style="height: 500px;">
                             </div>
                         @endforeach
                         </div>
@@ -59,9 +59,9 @@
         <!-- Galeri -->
         <section id="galeri" class="menu section">
             <div class="container">
-                <div class="row gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="row gy-4 justify-content-center">
                 @foreach($products as $index => $data)
-                    <div class="col-lg-3 gallery-item" style="{{ $index >= 12 ? 'display:none;' : '' }}">
+                    <div class="col-lg-3 gallery-item" style="{{ $index >= 12 ? 'display:none;' : '' }}" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
                         <div class="card border-0 shadow-sm overflow-hidden">
                             <a href="{{ Storage::url($data->image) }}" class="glightbox">
                                 <img
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#" id="loadMoreBtn" class="btn btn-dark">
+                    <a href="#" id="loadMoreBtn" class="btn-load-more">
                         Lihat Lebih Banyak
                     </a>
                 </div>

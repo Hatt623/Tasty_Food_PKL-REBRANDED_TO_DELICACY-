@@ -47,7 +47,7 @@
                   <div class="col">
                       <div class="card">
                           <div class="card-header bg-secondary text-white">
-                              Data Products
+                              Kontak list
                           </div>
 
                           <div class="card-body">
@@ -56,19 +56,30 @@
                                       <thead>
                                           <tr>
                                               <th> No </th>
-                                              <th> Products  </th>
+                                              <th> subject  </th>
+                                              <th> Nama Pelanggan  </th>
+                                              <th> Email Pelanggan  </th>
+                                              <th>Baca Pesan</th>
                                           </tr>
 
                                       </thead>
 
-                                      {{-- <tbody>
-                                          @foreach ($totalUsers as $data)
+                                      <tbody>
+                                          @foreach ($contacts as $data)
                                           <tr>
                                               <td> {{$loop->iteration}} </td>
+                                              <td> {{$data->subject}} </td>
                                               <td> {{$data->name}} </td>
+                                              <td> {{$data->email}} </td>
+                                              <td>
+                                                <a href="{{ route('backend.contact.show', $data->id) }}"
+                                                    class="btn btn-sm btn-success">
+                                                    Tampilkan
+                                                </a>
+                                              </td>
                                           </tr>
                                           @endforeach
-                                      </tbody> --}}
+                                      </tbody>
                                   </table>
                               </div>
 
@@ -77,8 +88,8 @@
                   </div>
               </div>
           </div>
-          <!--  Row 2 Chart-->
-          <div class="row">
+          <!--  Row  Chart-->
+          {{-- <div class="row">
             <div class=" d-flex align-items-stretch">
               <div class="card w-100">
                 <div class="card-body">
@@ -103,9 +114,9 @@
                           </div>
                         </div>
                         <div>
-                          {{-- <a class="btn btn-primary w-100" href="{{route('backend.orders.index')}}">  
-                              Manage orders
-                          </a> --}}
+                          <a class="btn btn-primary w-100" href="{{route('backend.contact.index')}}">  
+                              Lihat kontak
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -113,9 +124,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 d-flex align-items-stretch flex-column">
-            </div>
-          </div>
+          </div> --}}
+          {{-- Akhir Row Chart --}}
 @endsection
 
  @push('scripts')

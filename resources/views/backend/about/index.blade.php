@@ -9,9 +9,12 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        SILAHKAN EDIT HALAMAN ABOUT 
+                    </div>
                     <div class="card-body">
                         <div class="table table-responsive">
-                            <table class="table" id="dataabout">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th> Tentang </th>
@@ -34,10 +37,10 @@
                                         <td> <img src="{{ Storage::url($data->image_mission) }}" alt="{{ $data->mission }}" style="width: 60px; height: auto;"> </td>                                                         
                                         
                                         <td> 
-                                            {{-- <a href="{{ route('backend.about.show', $data->id) }}"
+                                            <a href="{{ route('about.index',) }}"
                                                 class="btn btn-sm btn-success">
                                                 Tampilkan
-                                            </a> | --}}
+                                            </a> |
 
                                             <a href="{{ route('backend.about.edit', $data->id) }}"
                                                 class="btn btn-sm btn-warning">
@@ -67,9 +70,4 @@
 @push('scripts')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-    $(document).ready(function () {
-        $('#dataabout').DataTable();
-    });
-    </script>
 @endpush
