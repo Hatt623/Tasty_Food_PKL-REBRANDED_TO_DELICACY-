@@ -20,7 +20,7 @@
       
         <section>
             <div class="container py-5">
-                <div class="contact-section">
+                <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
                     <!-- Form -->
                     <h2 class="mb-4 fw-bold">KONTAK KAMI</h2>
                     <form action="{{ route('contact.store') }}" method="POST" enctype="multipart/form-data" role="form">
@@ -105,7 +105,7 @@
         <!-- Map -->
         <section class="light-background">
             <div class="container py-1">
-                <div class="map-container ">
+                <div class="map-container" data-aos="fade-up" data-aos-delay="100">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63344.39168152261!2d107.560755!3d-6.934469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7f3e0f1b3a1%3A0x401e8f1fc28c6e0!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1694012345678"
                         allowfullscreen=""

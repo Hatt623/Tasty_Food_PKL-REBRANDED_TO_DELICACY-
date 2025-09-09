@@ -13,7 +13,7 @@
                     <h2 data-aos="fade-up">Tasty Food</h2>
                     <p data-aos="fade-up" data-aos-delay="100">{{Str::limit($about->about,350)}}</p>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <a href="#" class="btn-get-started">TENTANG KAMI</a>
+                        <a href="{{route('about.index')}}" class="btn-get-started">TENTANG KAMI</a>
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">

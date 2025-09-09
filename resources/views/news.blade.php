@@ -22,7 +22,7 @@
        
         <section class="news-hero mb-5 light-background">
             <div class="container">
-                <div class="row g-4 align-items-center">
+                <div class="row g-4 align-items-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-md-6">
                         <img class="news-hero-img"
                             src="{{ Storage::url($featurednews->image) }}"
