@@ -11,7 +11,7 @@
                     <hr data-aos="fade-up">
                     <h1 data-aos="fade-up">HEALTHY</h1>
                     <h2 data-aos="fade-up">Tasty Food</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">{{$about->about}}</p>
+                    <p data-aos="fade-up" data-aos-delay="100">{{Str::limit($about->about,350)}}</p>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                         <a href="#" class="btn-get-started">TENTANG KAMI</a>
                     </div>
@@ -89,7 +89,7 @@
                 {{-- Featured card kiri --}}
                 @if($featured)
                     <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card h-100 border-0 shadow-sm">
+                        <div class="news-card-featured card h-100 border-0 shadow-sm">
                             <img
                             src="{{ Storage::url($featured->image) }}"
                             class="card-img-top"

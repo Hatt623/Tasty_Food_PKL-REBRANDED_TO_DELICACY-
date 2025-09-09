@@ -28,10 +28,24 @@
                     {{$about->about}}
                 </p>
                 </div>
-                <div class="right" data-aos="fade-up">
-                    <div class="tile"><img class="img-zoom" src="{{ Storage::url($about->image_vision) }}" alt="tasty food"></div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="right" data-aos="fade-up">
+                                <div class="tile">
+                                    <img class="img-zoom" src="{{ Storage::url($about->image_vision) }}" alt="{{$about->image_vision}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="right" data-aos="fade-up">
+                                <div class="tile">
+                                    <img class="img-zoom" src="{{ Storage::url($about->image_mission) }}" alt="{{$about->image_mission}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
 

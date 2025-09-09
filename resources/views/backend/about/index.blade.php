@@ -33,8 +33,8 @@
                                         <td> {{Str::limit($data->about,10)}} </td>
                                         <td> {{Str::limit($data->vision,10)}} </td>
                                         <td> {{Str::limit($data->mission,10)}} </td>
-                                        <td> <img src="{{ Storage::url($data->image_vision) }}" alt="{{ $data->vision }}" style="width: 60px; height: auto;"> </td>                                                         
-                                        <td> <img src="{{ Storage::url($data->image_mission) }}" alt="{{ $data->mission }}" style="width: 60px; height: auto;"> </td>                                                         
+                                        <td> <img src="{{ Storage::url($data->image_vision) }}" alt="{{ $data->image_vision }}" style="width: 60px; height: auto;"> </td>                                                         
+                                        <td> <img src="{{ Storage::url($data->image_mission) }}" alt="{{ $data->image_mission }}" style="width: 60px; height: auto;"> </td>                                                         
                                         
                                         <td> 
                                             <a href="{{ route('about.index',) }}"
@@ -45,12 +45,6 @@
                                             <a href="{{ route('backend.about.edit', $data->id) }}"
                                                 class="btn btn-sm btn-warning">
                                                 Ubah
-                                            </a> |
-
-                                            <a href="{{ route('backend.about.destroy', $data->id) }}"
-                                                class="btn btn-sm btn-danger"
-                                                data-confirm-delete="true">
-                                                Hapus
                                             </a>
                                         </td>
 

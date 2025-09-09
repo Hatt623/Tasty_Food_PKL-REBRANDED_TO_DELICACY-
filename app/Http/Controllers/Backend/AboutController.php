@@ -48,9 +48,9 @@ class AboutController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'about' => 'required|max:200',
-            'vision' => 'required|max:200',
-            'mission' => 'required|max:200',
+            'about' => 'required|max:1000',
+            'vision' => 'required|max:1000',
+            'mission' => 'required|max:1000',
 
             'image_vision'  => 'image|mimes:jpg,png|max:10024',
             'image_mission'  => 'image|mimes:jpg,png|max:10024',
@@ -87,7 +87,8 @@ class AboutController extends Controller
     public function destroy(string $id)
     {
         $about = About::findOrFail($id);
-        Storage::disk('public')->delete($about->image_vision, $about->image_mission);
+        Storage::disk('public')->delete($about->image_vision);
+        Storage::disk('public')->delete($about->image_mission);
         $about->delete();
         toast('Data berhasil dihapus', 'success');
         return redirect()->route('backend.about.index');
