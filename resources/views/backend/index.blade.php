@@ -20,8 +20,8 @@
                 <div class="card-body">
                   <div class="text-center">
                     <img src="{{asset('assets/backend/images/svgs/icon-mailbox.svg')}}" width="50" height="50" class="mb-3" alt="modernize-img" />
-                    <p class="fw-semibold fs-3 text-info mb-1">Products</p>
-                    <h5 class="fw-semibold text-info mb-0">{{$totalProducts}}</h5>
+                    <p class="fw-semibold fs-3 text-info mb-1">contact</p>
+                    <h5 class="fw-semibold text-info mb-0">{{$totalContacts}}</h5>
                   </div>
                 </div>
               </div>
@@ -31,8 +31,8 @@
                 <div class="card-body">
                   <div class="text-center">
                     <img src="{{asset('assets/backend/images/svgs/icon-favorites.svg')}}" width="50" height="50" class="mb-3" alt="modernize-img" />
-                    <p class="fw-semibold fs-3 text-danger mb-1">Contact</p>
-                    <h5 class="fw-semibold text-danger mb-0">{{$totalContacts}}</h5>
+                    <p class="fw-semibold fs-3 text-danger mb-1">products</p>
+                    <h5 class="fw-semibold text-danger mb-0">{{$totalProducts}}</h5>
                   </div>
                 </div>
               </div>
