@@ -96,7 +96,7 @@ class NewsController extends Controller
         $news ->description = $request->description;
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($product->image);
+            Storage::disk('public')->delete($news->image);
 
             $file           = $request->file('image');
             $randomName     = Str::random(20) . '.' . $file->getClientOriginalExtension();

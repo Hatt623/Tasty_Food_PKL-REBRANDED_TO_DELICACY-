@@ -1072,8 +1072,6 @@
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js')}}"></script>
   <script src="{{asset('assets/backend/libs/owl.carousel/dist/owl.carousel.min.js')}}"></script>
   <script src="{{asset('assets/backend/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
-  <script src="{{ asset('assets/backend/js/dashboards/orderchart.js') }}"></script>
-  <script src="{{ asset('assets/backend/js/dashboards/lendingchart.js') }}"></script>
   <script src="{{asset('assets/backend/js/dashboards/dashboard.js')}}"></script>
 
   {{-- JS baru --}}

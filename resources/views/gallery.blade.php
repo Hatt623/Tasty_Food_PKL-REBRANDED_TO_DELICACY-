@@ -33,7 +33,7 @@
                                 src="{{ Storage::url($data->image) }}" 
                                 class="d-block w-100" 
                                 alt="{{ $data->name }}"
-                                style="height: 500px;">
+                                >
                             </div>
                         @endforeach
                         </div>
@@ -88,24 +88,24 @@
 @endsection
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".gallery-item");
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    let visibleCount = 4; // awalnya tampil 4 item
+    document.addEventListener("DOMContentLoaded", function () {
+        const items = document.querySelectorAll(".gallery-item");
+        const loadMoreBtn = document.getElementById("loadMoreBtn");
+        let visibleCount = 4; // awalnya tampil 4 item
 
-    loadMoreBtn.addEventListener("click", function (e) {
-        e.preventDefault();
+        loadMoreBtn.addEventListener("click", function (e) {
+            e.preventDefault();
 
-        let nextCount = visibleCount + 4; // tambah 1 baris (4 item)
-        for (let i = visibleCount; i < nextCount && i < items.length; i++) {
-            items[i].style.display = "block";
-        }
-        visibleCount = nextCount;
+            let nextCount = visibleCount + 4; // tambah 1 baris (4 item)
+            for (let i = visibleCount; i < nextCount && i < items.length; i++) {
+                items[i].style.display = "block";
+            }
+            visibleCount = nextCount;
 
-        // kalau semua item sudah tampil, sembunyikan tombol
-        if (visibleCount >= items.length) {
-            loadMoreBtn.style.display = "none";
-        }
+            // kalau semua item sudah tampil, sembunyikan tombol
+            if (visibleCount >= items.length) {
+                loadMoreBtn.style.display = "none";
+            }
+        });
     });
-});
 </script>
