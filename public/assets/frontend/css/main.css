@@ -1,5 +1,6 @@
 /**
 * Template Name: Yummy
+* Changed to built a restaurant website "tasty food" by Hatt623
 * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
 * Updated: Aug 07 2024 with Bootstrap v5.3.3
 * Author: BootstrapMade.com
@@ -89,6 +90,20 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
+}
+
+.btn-load-more {
+  color: var(--contrast-color);
+  background: var(--default-color);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 12px 28px;
+  padding-left: 50px;
+  padding-right: 50px;
+  transition: 0.5s;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 
 /* News
@@ -1543,56 +1558,37 @@ section,
   height: 500px;
 }
 
-/* Membuat ikon panah terlihat jelas */
 .carousel-featured .carousel-control-prev-icon,
 .carousel-featured .carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5); /* latar belakang gelap transparan */
+  background-color: rgba(0, 0, 0, 0.5); 
   background-size: 100%;
-  border-radius: 50%; /* bulat */
+  border-radius: 50%; 
 }
 
-/* Opsional: perbesar ukuran ikon */
 .carousel-featured .carousel-control-prev-icon,
 .carousel-featured .carousel-control-next-icon {
   width: 3rem;
   height: 3rem;
 }
 
-/* Posisi tombol sedikit keluar dari gambar */
 .carousel-featured .carousel-control-prev {
   left: 10px;
 }
+
 .carousel-featured .carousel-control-next {
   right: 10px;
 }
 
-@media (min-width: 992px) {
-  .gallery .swiper-wrapper {
-    padding: 40px 0;
-  }
-
-  .gallery .swiper-slide-active {
-    background: var(--background-color);
-    border: 6px solid var(--accent-color);
-    padding: 4px;
-    z-index: 1;
-    transform: scale(1.2);
-    transition: none;
-  }
+.gallery-item img {
+  object-fit: cover;
+  height: 300px;
 }
 
-.btn-load-more {
-  color: var(--contrast-color);
-  background: var(--default-color);
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px 12px 28px;
-  padding-left: 50px;
-  padding-right: 50px;
-  transition: 0.5s;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+@media (max-width: 640px) {
+  .gallery-item img {
+    object-fit: cover;
+    height: 400px;
+  }
 }
 
 /*--------------------------------------------------------------

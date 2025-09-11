@@ -165,7 +165,7 @@
                                 src="{{ Storage::url($data->image) }}"
                                 alt="Gallery Image"
                                 class="card-img-top img-fluid"
-                                style="object-fit: cover; height: 250px;"
+                                style="object-fit: cover; height: 400px;"
                             >
                             </a>
                         </div>

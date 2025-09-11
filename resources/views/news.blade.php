@@ -83,18 +83,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     const items = document.querySelectorAll(".news-item");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
-    let visibleCount = 4; // awalnya tampil 4 berita
+    let visibleCount = 4; 
 
     loadMoreBtn.addEventListener("click", function (e) {
         e.preventDefault();
 
-        let nextCount = visibleCount + 4; // tambah 4 berita lagi
+        let nextCount = visibleCount + 4; 
         for (let i = visibleCount; i < nextCount && i < items.length; i++) {
             items[i].style.display = "block";
         }
         visibleCount = nextCount;
 
-        // kalau semua berita sudah tampil, sembunyikan tombol
         if (visibleCount >= items.length) {
             loadMoreBtn.style.display = "none";
         }

@@ -57,7 +57,7 @@
         {{-- akhir Carousel featured products --}}
 
         <!-- Galeri -->
-        <section id="galeri" class="menu section">
+        <section id="galeri" class="galerry section">
             <div class="container">
                 <div class="row gy-4 justify-content-center">
                 @foreach($products as $index => $data)
@@ -68,7 +68,6 @@
                                     src="{{ Storage::url($data->image) }}"
                                     alt="Gallery Image"
                                     class="card-img-top img-fluid"
-                                    style="object-fit: cover; height: 250px;"
                                 >
                             </a>
                         </div>
@@ -91,18 +90,17 @@
     document.addEventListener("DOMContentLoaded", function () {
         const items = document.querySelectorAll(".gallery-item");
         const loadMoreBtn = document.getElementById("loadMoreBtn");
-        let visibleCount = 4; // awalnya tampil 4 item
+        let visibleCount = 4; 
 
         loadMoreBtn.addEventListener("click", function (e) {
             e.preventDefault();
 
-            let nextCount = visibleCount + 4; // tambah 1 baris (4 item)
+            let nextCount = visibleCount + 4; 
             for (let i = visibleCount; i < nextCount && i < items.length; i++) {
                 items[i].style.display = "block";
             }
             visibleCount = nextCount;
 
-            // kalau semua item sudah tampil, sembunyikan tombol
             if (visibleCount >= items.length) {
                 loadMoreBtn.style.display = "none";
             }
