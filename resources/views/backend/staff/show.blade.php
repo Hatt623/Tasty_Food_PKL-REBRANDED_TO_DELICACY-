@@ -7,6 +7,7 @@
                 <div class="card-header bg-secondary text-white">
                     <h5 class="mb-0">Detail Akun Staff</h5>
                 </div>
+                
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">

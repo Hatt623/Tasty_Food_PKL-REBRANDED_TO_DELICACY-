@@ -23,11 +23,6 @@ Route::get('/contact',[FrontendController::class, 'contact'])->name('contact.ind
 // Proses form kontak (POST)
 Route::post('/contact', [FrontendController::class, 'storeContact'])->name('contact.store');
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes(['register' => false]);
 
 // Force logout

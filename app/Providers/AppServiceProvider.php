@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\About;
 
-
 class AppServiceProvider extends ServiceProvider
 {
     /**

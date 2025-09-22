@@ -40,7 +40,6 @@
                                         class="form-control" required>
                                 </div>
 
-
                                 <div class="mb-2">
                                     <button type="submit" class="btn btn-sm btn-outline-primary"> Save </button>
                                     <button type="reset" class="btn btn-sm btn-outline-warning"> Reset </button>

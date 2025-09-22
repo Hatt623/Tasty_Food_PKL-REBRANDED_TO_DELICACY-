@@ -1,5 +1,5 @@
 <aside class="left-sidebar with-vertical">
-      <div><!-- ---------------------------------- -->
+      <div>
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">

@@ -10,7 +10,6 @@
             <i class="bi bi-twitter-x" style="margin-right: 10px"></i>
             <i class="bi bi-facebook"></i>
           </div>
-
         </div>
 
         <div class="col-lg-3 col-md-6 d-flex">

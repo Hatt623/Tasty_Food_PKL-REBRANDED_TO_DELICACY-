@@ -8,7 +8,6 @@ use App\Models\News;
 use App\Models\About;
 use App\Models\Contact;
 
-
 class FrontendController extends Controller
 {
     /**
