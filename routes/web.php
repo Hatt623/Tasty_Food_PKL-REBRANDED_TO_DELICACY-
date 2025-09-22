@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\StaffsController;
 
 use App\Http\Controllers\FrontendController;
 
@@ -27,7 +28,7 @@ Route::post('/contact', [FrontendController::class, 'storeContact'])->name('cont
 //     return view('welcome');
 // });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 // Force logout
 Route::get('/logout', function () {
@@ -43,7 +44,8 @@ Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 
     Route::resource('/product', ProductController::class);
     Route::resource('/contact', ContactController::class);
     Route::resource('/about', AboutController::class);
-    Route::resource('/news', NewsController::class);   
+    Route::resource('/news', NewsController::class);  
+    Route::resource('/staff', StaffsController::class);   
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

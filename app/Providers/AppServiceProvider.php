@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\Models\About;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('layouts.components-frontend.footer', function ($view) {
+            $view->with('about', About::first());
+        });
     }
 }

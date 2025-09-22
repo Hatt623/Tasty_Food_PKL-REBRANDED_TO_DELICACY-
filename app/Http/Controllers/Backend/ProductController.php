@@ -89,6 +89,7 @@ class ProductController extends Controller
             'name' => 'required|',
             'description' => 'required|max:500',
             'image'  => 'image|mimes:jpg,png|max:10024',
+            
         ]);
 
         $product = Product::findOrFail($id);

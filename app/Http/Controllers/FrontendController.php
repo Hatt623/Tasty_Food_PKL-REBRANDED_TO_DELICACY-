@@ -29,10 +29,9 @@ class FrontendController extends Controller
 
     public function gallery()
     {
-        $about = About::first();
         $products = Product::all();
         $featuredproducts = Product::latest()->take(3)->get();
-        return view('gallery', compact('products','featuredproducts','about'));
+        return view('gallery', compact('products','featuredproducts'));
 
     }
 
@@ -44,17 +43,15 @@ class FrontendController extends Controller
 
     public function news()
     {
-        $about = About::first();
         $news = news::all();
         $featurednews = news::latest()->first();
-        return view('news', compact('news','featurednews','about'));
+        return view('news', compact('news','featurednews'));
 
     }
 
      public function contact()
     {
-        $about = About::first();
-        return view('contact', compact('about'));
+        return view('contact');
 
     }
 
