@@ -31,16 +31,16 @@
                     <div class="row">
                         <div class="col">
                             <div class="right" data-aos="fade-up">
-                                <div class="tile">
-                                    <img class="img-zoom" src="{{ Storage::url($about->image_vision) }}" alt="{{$about->image_vision}}">
+                                <div class="tile"> 
+                                    <img class="img-zoom" src="{{ asset($about->image_vision) }}" alt="{{$about->image_vision}}">
                                 </div>
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="right" data-aos="fade-up">
-                                <div class="tile">
-                                    <img class="img-zoom" src="{{ Storage::url($about->image_mission) }}" alt="{{$about->image_mission}}">
+                                <div class="tile"> 
+                                    <img class="img-zoom" src="{{ asset($about->image_mission) }}" alt="{{$about->image_mission}}">
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
             <div class="container-about">
             <div class="row">
                 <div class="left" data-aos="fade-up">
-                    <div class="tile"><img class="img-zoom" src="{{ Storage::url($about->image_vision) }}" alt="tasty food"></div>
+                    <div class="tile"><img class="img-zoom" src="{{ asset($about->image_vision) }}" alt="tasty food"></div>
                 </div>
                 <div class="right copy">
                 <h2>Visi</h2>
@@ -79,7 +79,7 @@
                 </p>
                 </div>
                 <div class="right" data-aos="fade-up">
-                    <div class="tile"><img class="img-zoom" src="{{ Storage::url($about->image_mission) }}" alt="tasty food"></div>
+                    <div class="tile"><img class="img-zoom" src="{{ asset($about->image_mission) }}" alt="tasty food"></div>
                 </div>
             </div>
             </div>

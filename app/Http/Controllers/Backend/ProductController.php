@@ -48,12 +48,24 @@ class ProductController extends Controller
         $product ->description = $request->description;
 
         if ($request->hasFile('image')) {
-            $file           = $request->file('image');
-            $randomName     = Str::random(20) . '.' . $file->getClientOriginalExtension();
-            $path           = $file->storeAs('products', $randomName, 'public');
-            // memasukkan nama image nya ke database
-            $product->image = $path;
+        $file       = $request->file('image');
+        $randomName = Str::random(20) . '.' . $file->getClientOriginalExtension();
+
+        //folder tujuan 
+        $destinationPath = public_path('uploads/products');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
         }
+
+        // Pindahkan file
+        $file->move($destinationPath, $randomName);
+
+        // Set permission file
+        @chmod($destinationPath . '/' . $randomName, 0644);
+
+        // Simpan path relatif ke DB
+        $product->image = 'uploads/products/' . $randomName;
+    }
 
         $product->save();
         toast('Data berhasil ditambah', 'success');
@@ -97,14 +109,25 @@ class ProductController extends Controller
         $product ->description = $request->description;
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($product->image);
-
-            $file           = $request->file('image');
-            $randomName     = Str::random(20) . '.' . $file->getClientOriginalExtension();
-            $path           = $file->storeAs('products', $randomName, 'public');
-            // memasukkan nama image nya ke database
-            $product->image = $path;
+            
+        $oldPath = public_path($product->image);
+        if (file_exists($oldPath)) {
+            unlink($oldPath);
         }
+
+        $file       = $request->file('image');
+        $randomName = Str::random(20) . '.' . $file->getClientOriginalExtension();
+
+        $destinationPath = public_path('uploads/products');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
+        }
+
+        $file->move($destinationPath, $randomName);
+        @chmod($destinationPath . '/' . $randomName, 0644);
+
+        $product->image = 'uploads/products/' . $randomName;
+    }
 
         $product->save();
         toast('Data berhasil diubah', 'success');

@@ -38,7 +38,7 @@
                                         <td> {{$loop->iteration}} </td>
                                         <td> {{$data->title}} </td>
                                         <td> {{Str::limit($data->description, 10)}} </td>
-                                        <td> <img src="{{ Storage::url($data->image) }}" alt="{{ $data->title }}" style="width: 60px; height: auto;"> </td>                                                         
+                                        <td> <img src="{{ asset($data->image) }}" alt="{{ $data->title }}" style="width: 60px; height: auto;"> </td>                                                         
                                         
                                         <td> 
                                              <a href="{{ route('backend.news.show', $data->id) }}"

@@ -47,7 +47,7 @@
                                 <div class="mb-2">
                                     @if($about->image_vision)
                                         <label for="image">Foto Visi</label>
-                                        <img src="{{ Storage::url($about->image_vision) }}" alt="" style="width: 100px; height:100px;">
+                                        <img src="{{ asset($about->image_vision) }}" alt="" style="width: 100px; height:100px;">
                                     @endif
 
                                     <br>
@@ -65,7 +65,7 @@
                                 <div class="mb-2">
                                     @if($about->image_mission)
                                         <label for="image_mission">Foto Misi</label>
-                                        <img src="{{ Storage::url($about->image_mission) }}" alt="" style="width: 100px; height:100px;">
+                                        <img src="{{ asset($about->image_mission) }}" alt="" style="width: 100px; height:100px;">
                                     @endif
 
                                     <br>

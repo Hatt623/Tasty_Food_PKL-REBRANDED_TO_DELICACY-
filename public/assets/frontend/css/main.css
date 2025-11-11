@@ -128,14 +128,6 @@ h6 {
       margin-bottom: 1.25rem;
     }
 
-    .news-hero .btn-news-hero {
-      background-color: var(--default-color);
-      color: var(--contrast-color);
-      font-weight: 600;
-      padding: .625rem 1.25rem;
-      transition: background-color .3s ease;
-    }
-
     /* Cards */
     .news-card-featured .card-img-top {
       height: 400px;

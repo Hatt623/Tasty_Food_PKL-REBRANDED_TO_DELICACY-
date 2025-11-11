@@ -30,7 +30,7 @@
                         @foreach($featuredproducts as $index => $data)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                             <img 
-                                src="{{ Storage::url($data->image) }}" 
+                                src="{{ asset($data->image) }}" 
                                 class="d-block w-100" 
                                 alt="{{ $data->name }}"
                                 >
@@ -63,9 +63,9 @@
                 @foreach($products as $index => $data)
                     <div class="col-lg-3 gallery-item" style="{{ $index >= 12 ? 'display:none;' : '' }}" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
                         <div class="card border-0 shadow-sm overflow-hidden">
-                            <a href="{{ Storage::url($data->image) }}" class="glightbox">
+                            <a href="{{ asset($data->image) }}" class="glightbox">
                                 <img
-                                    src="{{ Storage::url($data->image) }}"
+                                    src="{{ asset($data->image) }}"
                                     alt="Gallery Image"
                                     class="card-img-top img-fluid"
                                 >

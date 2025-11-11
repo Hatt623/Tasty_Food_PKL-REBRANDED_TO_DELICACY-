@@ -37,7 +37,7 @@
                                 <div class="mb-2">
                                     @if($news->image)
                                         <label for="image">Foto Produk</label>
-                                        <img src="{{ Storage::url($news->image) }}" alt="" style="width: 100px; height:100px;">
+                                        <img src="{{ asset($news->image) }}" alt="" style="width: 100px; height:100px;">
                                     @endif
 
                                     <br>

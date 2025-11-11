@@ -19,6 +19,7 @@ Route::get('/gallery',[FrontendController::class, 'gallery'])->name('gallery.ind
 Route::get('/about',[FrontendController::class, 'about'])->name('about.index');
 Route::get('/news',[FrontendController::class, 'news'])->name('news.index');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact.index');
+Route::get('/newsRead/{id}', [FrontendController::class, 'newsRead'])->name('newsRead.show');
 
 // Proses form kontak (POST)
 Route::post('/contact', [FrontendController::class, 'storeContact'])->name('contact.store');

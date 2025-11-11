@@ -8,10 +8,6 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
-  <link href="{{asset('assets/frontend/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('assets/frontend/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>

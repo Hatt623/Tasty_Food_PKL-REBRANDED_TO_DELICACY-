@@ -19,7 +19,7 @@
                             <div class="mb-3">
                                 <label><strong>Cover Berita:</strong></label><br>
                                 @if($news->image)
-                                    <img src="{{ Storage::url($news->image) }}" alt="news Image" class="img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
+                                    <img src="{{ asset($news->image) }}" alt="news Image" class="img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
                                 @else
                                     <div>Produk tidak memiliki foto</div>
                                 @endif

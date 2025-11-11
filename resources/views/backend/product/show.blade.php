@@ -27,7 +27,7 @@
                             <div class="mb-3">
                                 <label><strong>Foto Produk:</strong></label><br>
                                 @if($product->image)
-                                    <img src="{{ Storage::url($product->image) }}" alt="product Image" class="img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
+                                    <img src="{{ asset($product->image) }}" alt="product Image" class="img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
                                 @else
                                     <div>Produk tidak memiliki foto</div>
                                 @endif

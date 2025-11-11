@@ -49,12 +49,20 @@ class NewsController extends Controller
         $news ->description = $request->description;
 
         if ($request->hasFile('image')) {
-            $file           = $request->file('image');
-            $randomName     = Str::random(20) . '.' . $file->getClientOriginalExtension();
-            $path           = $file->storeAs('news', $randomName, 'public');
-            // memasukkan nama image nya ke database
-            $news->image = $path;
+        $file       = $request->file('image');
+        $randomName = Str::random(20) . '.' . $file->getClientOriginalExtension();
+
+        $destinationPath = public_path('uploads/news');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
         }
+
+        $file->move($destinationPath, $randomName);
+
+        @chmod($destinationPath . '/' . $randomName, 0644);
+
+        $news->image = 'uploads/news/' . $randomName;
+    }
 
         $news->save();
         toast('Data berhasil ditambah', 'success');
@@ -96,14 +104,25 @@ class NewsController extends Controller
         $news ->description = $request->description;
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($news->image);
-
-            $file           = $request->file('image');
-            $randomName     = Str::random(20) . '.' . $file->getClientOriginalExtension();
-            $path           = $file->storeAs('news', $randomName, 'public');
-            // memasukkan nama image nya ke database
-            $news->image = $path;
+        // Hapus file lama
+        $oldPath = public_path($news->image);
+        if (file_exists($oldPath)) {
+            unlink($oldPath);
         }
+
+        $file       = $request->file('image');
+        $randomName = Str::random(20) . '.' . $file->getClientOriginalExtension();
+
+        $destinationPath = public_path('uploads/news');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
+        }
+
+        $file->move($destinationPath, $randomName);
+        @chmod($destinationPath . '/' . $randomName, 0644);
+
+        $news->image = 'uploads/news/' . $randomName;
+    }
 
         $news->save();
         toast('Data berhasil ditambah', 'success');

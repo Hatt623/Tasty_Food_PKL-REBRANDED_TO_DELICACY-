@@ -61,20 +61,35 @@ class AboutController extends Controller
         $about ->vision = $request->vision;
         $about ->mission = $request->mission;
 
-        if ($request->hasFile('image_vision') && $request->hasFile('image_mission')) {
-            Storage::disk('public')->delete($about->image_vision, $about->image_mission);
-
-            $fileVision           = $request->file('image_vision');
-            $fileMission           = $request->file('image_mission');
-
-            $pathVision = $fileVision->storeAs('abouts', Str::random(20) . '.' . $fileVision->getClientOriginalExtension(), 'public');
-            $pathMission = $fileMission->storeAs('abouts', Str::random(20) . '.' . $fileMission->getClientOriginalExtension(), 'public');
-
-            // memasukkan nama image nya ke database
-            $about->image_vision = $pathVision;
-            $about->image_mission = $pathMission;
-
+        // folder tujuan
+        $destinationPath = public_path('uploads/abouts');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
         }
+
+        // Hapus file lama 
+        if ($request->hasFile('image_vision')) {
+            if ($about->image_vision && file_exists(public_path($about->image_vision))) {
+                unlink(public_path($about->image_vision));
+            }
+            $fileVision   = $request->file('image_vision');
+            $randomVision = Str::random(20) . '.' . $fileVision->getClientOriginalExtension();
+            $fileVision->move($destinationPath, $randomVision);
+            @chmod($destinationPath . '/' . $randomVision, 0644);
+            $about->image_vision = 'uploads/abouts/' . $randomVision;
+        }
+
+        if ($request->hasFile('image_mission')) {
+            if ($about->image_mission && file_exists(public_path($about->image_mission))) {
+                unlink(public_path($about->image_mission));
+            }
+            $fileMission   = $request->file('image_mission');
+            $randomMission = Str::random(20) . '.' . $fileMission->getClientOriginalExtension();
+            $fileMission->move($destinationPath, $randomMission);
+            @chmod($destinationPath . '/' . $randomMission, 0644);
+            $about->image_mission = 'uploads/abouts/' . $randomMission;
+        }
+
 
         $about->save();
         toast('Data berhasil diubah', 'success');

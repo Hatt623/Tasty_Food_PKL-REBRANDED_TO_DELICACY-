@@ -48,6 +48,13 @@ class FrontendController extends Controller
 
     }
 
+    public function newsRead(String $id)
+    {
+        $news = news::findOrFail($id);
+        return view('newsRead', compact('news'));
+
+    }
+
      public function contact()
     {
         return view('contact');

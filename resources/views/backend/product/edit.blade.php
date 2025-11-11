@@ -37,7 +37,7 @@
                                 <div class="mb-2">
                                     @if($product->image)
                                         <label for="image">Foto Produk</label>
-                                        <img src="{{ Storage::url($product->image) }}" alt="" style="width: 100px; height:100px;">
+                                        <img src="{{ asset($product->image) }}" alt="" style="width: 100px; height:100px;">
                                     @endif
 
                                     <br>

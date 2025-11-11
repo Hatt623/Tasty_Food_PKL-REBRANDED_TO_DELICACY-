@@ -38,7 +38,7 @@
                                         <td> {{$loop->iteration}} </td>
                                         <td> {{$data->name}} </td>
                                         <td> {{Str::limit($data->description,10)}} </td>
-                                        <td> <img src="{{ Storage::url($data->image) }}" alt="{{ $data->name }}" style="width: 60px; height: auto;"> </td>                                                         
+                                        <td> <img src="{{ asset($data->image) }}" alt="{{ $data->name }}" style="width: 60px; height: auto;"> </td>                                                         
                                         
                                         <td> 
                                              <a href="{{ route('backend.product.show', $data->id) }}"

@@ -50,7 +50,7 @@
                         >
                         <div class="card featured-card position-relative overflow-visible text-center">
                             <img
-                            src="{{ Storage::url($product->image) }}"
+                            src="{{ asset($product->image) }}"
                             alt="{{ $product->title }}"
                             class="featured-img rounded-circle"
                             >
@@ -91,7 +91,7 @@
                     <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
                         <div class="news-card-featured card h-100 border-0 shadow-sm">
                             <img
-                            src="{{ Storage::url($featured->image) }}"
+                            src="{{asset($featured->image) }}"
                             class="card-img-top"
                             alt="{{ $featured->title }}"
                             >
@@ -99,7 +99,7 @@
                                 <h5 class="card-title">{{ $featured->title }}</h5>
                                 <p class="card-text">{{ Str::limit($featured->description, 150) }}</p>
                                 <div class="card-actions">
-                                    <a href="#"
+                                    <a href="{{route('newsRead.show', $featured->id)}}"
                                     class="stretched-link text-decoration-none">
                                     Baca selengkapnya
                                     </a>
@@ -119,7 +119,7 @@
                         <div class="col-6" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
                             <div class="news-card card h-100 border-0 shadow-sm">
                                 <img
-                                src="{{ Storage::url($post->image) }}"
+                                src="{{ asset($post->image) }}"
                                 class="card-img-top"
                                 alt="{{ $post->title }}"
 
@@ -131,7 +131,7 @@
                                     </p>
 
                                     <div class="card-actions">
-                                        <a href="#" class="stretched-link small text-decoration-none">Baca selengkapnya</a>
+                                        <a href="{{route('newsRead.show', $post->id)}}" class="stretched-link small text-decoration-none">Baca selengkapnya</a>
                                         <button type="button" class="btn-link-more btn btn-sm btn-light">
                                             <i class="bi bi-three-dots"></i>
                                         </button>
@@ -160,9 +160,9 @@
                 @foreach($products as $index => $data)
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 250 + ($index * 50) }}">
                         <div class="card border-0 shadow-sm overflow-hidden">
-                            <a href="{{ Storage::url($data->image) }}" class="glightbox">
+                            <a href="{{ asset($data->image) }}" class="glightbox">
                             <img
-                                src="{{ Storage::url($data->image) }}"
+                                src="{{ asset($data->image) }}"
                                 alt="Gallery Image"
                                 class="card-img-top img-fluid"
                                 style="object-fit: cover; height: 400px;"
