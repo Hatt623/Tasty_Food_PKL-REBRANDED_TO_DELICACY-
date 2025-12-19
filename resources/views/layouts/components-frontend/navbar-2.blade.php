@@ -4,7 +4,7 @@
       <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png')}}" alt=""> -->
-        <h1 class="sitename-2">Tasty Food</h1>
+        <h1 class="sitename-2">Delicacy</h1>
       </a>
 
       <nav id="navmenu-2" class="navmenu-2">
@@ -14,6 +14,21 @@
           <li><a href="{{route('news.index')}}">Berita</a></li>
           <li><a href="{{ route('gallery.index') }}">Galeri</a></li>
           <li><a href="{{route ('contact.index')}}">Kontak</a></li>
+          <li><a href="{{route ('reservation.index')}}">Reservasi</a></li>
+
+          @if (Auth::check())
+            <li class="dropdown">
+              <a href="#"><span>Kelola</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#">Kelola Reservasi</a></li>
+                <li><a href="#">Kelola Payment</a></li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </li>
+          @else
+            <li><a href="{{ route('login') }}">Login</a></li>
+          @endif
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

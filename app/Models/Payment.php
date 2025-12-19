@@ -10,6 +10,6 @@ class Payment extends Model
 
     //relasi dengan reservation
     public function reservation(){
-        return $this->belongsTo(Reservation::class);
+        return $this->belongsTo(Reservation::class, 'reservation_id');
     }
 }

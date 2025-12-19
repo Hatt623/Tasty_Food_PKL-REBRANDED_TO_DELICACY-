@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'Admin'
+        'phone',
+        'role'
     ];
 
     /**
@@ -48,8 +49,8 @@ class User extends Authenticatable
     }
 
     //relasi dengan reservation
-    public function reservations(){
-        return $this->hasmany(Reservation::class);
+    public function reservation(){
+        return $this->hasMany(Reservation::class, 'user_id');
     }
     
 }

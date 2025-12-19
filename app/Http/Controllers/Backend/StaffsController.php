@@ -47,7 +47,8 @@ class StaffsController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'Admin'    => 1, 
+            'phone'    => $request->phone,
+            'role'     => 'staff', 
         ]);
 
         toast('Staff account created successfully', 'success');

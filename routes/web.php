@@ -14,6 +14,9 @@ use App\Http\Controllers\Backend\ReservationController;
 use App\Http\Controllers\Backend\PaymentController;
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ReservationCSController;
+use App\Http\Controllers\PaymentCSController;
+
 
 
 Route::get('/',[FrontendController::class, 'index']);
@@ -23,10 +26,15 @@ Route::get('/news',[FrontendController::class, 'news'])->name('news.index');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact.index');
 Route::get('/newsRead/{id}', [FrontendController::class, 'newsRead'])->name('newsRead.show');
 
+Route::get('/reservation', [ReservationCSController::class, 'index'])->name('reservation.index');
+Route::post('/reservation', [ReservationCSController::class, 'store'])->name('reservation.store');
+
+Route::resource('/payment-cs', PaymentCSController::class);
+
 // Proses form kontak (POST)
 Route::post('/contact', [FrontendController::class, 'storeContact'])->name('contact.store');
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 // Force logout
 Route::get('/logout', function () {
@@ -43,7 +51,9 @@ Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 
     Route::resource('/contact', ContactController::class);
     Route::resource('/about', AboutController::class);
     Route::resource('/news', NewsController::class);  
-    Route::resource('/staff', StaffsController::class);   
+    Route::resource('/staff', StaffsController::class); 
+    Route::resource('/reservation', ReservationController::class);
+    Route::resource('/payment', PaymentController::class);  
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

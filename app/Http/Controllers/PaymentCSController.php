@@ -1,26 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Payment;
 use App\Models\Reservation;
 
-
-class PaymentController extends Controller
+class PaymentCSController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $payment = Payment::with('reservation_id')->get()->latest();
-        $title = 'Delete Data';
-        $text = 'Apakah Anda yakin?';
-        confirmDelete($title,$text);
-
-        return view('backend.payment.index', compact('payments'));
+        //
     }
 
     /**

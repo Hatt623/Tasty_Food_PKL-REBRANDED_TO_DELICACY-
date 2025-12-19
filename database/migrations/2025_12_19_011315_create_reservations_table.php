@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->dateTime('reservation_date');
-            $table->dateTime('reservation_time');
+            $table->date('reservation_date');
+            $table->time('reservation_time');
             $table->integer('guest_count');
             $table->enum('status',['pending','confirmed','cancelled','completed'])->default('pending');
             $table->enum('payment_status',['unpaid','paid'])->default('unpaid');

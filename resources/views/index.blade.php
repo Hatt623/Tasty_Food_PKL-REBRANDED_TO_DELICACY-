@@ -9,8 +9,8 @@
                 <div class="row gy-4 justify-content-center justify-content-lg-between">
                 <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <hr data-aos="fade-up">
-                    <h1 data-aos="fade-up">HEALTHY</h1>
-                    <h2 data-aos="fade-up">Tasty Food</h2>
+                    <h1 data-aos="fade-up">FINE FOOD</h1>
+                    <h2 data-aos="fade-up">Delicacy</h2>
                     <p data-aos="fade-up" data-aos-delay="100">{{Str::limit($about->about,350)}}</p>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                         <a href="{{route('about.index')}}" class="btn-get-started">TENTANG KAMI</a>

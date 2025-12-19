@@ -9,7 +9,7 @@
                 <!-- Card -->
                 <div class="card shadow-sm border-0 rounded-3 mt-5 pt-5">
                     <div class="card-header bg-warning text-dark text-center py-3">
-                        <h4 class="mb-0">Tasty Food Staff Login</h4>
+                        <h4 class="mb-0">Delicacy Login</h4>
                     </div>
 
                     <div class="card-body p-4">
@@ -58,6 +58,7 @@
                             <!-- Submit Button -->
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-dark btn-lg">Login</button>
+                                <a href="/register" class="btn btn-outline-dark btn-lg mt-2">Register</a>
                             </div>
 
                             <!-- Forgot Password -->

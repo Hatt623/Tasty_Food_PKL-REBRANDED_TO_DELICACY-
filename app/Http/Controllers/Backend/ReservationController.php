@@ -14,7 +14,12 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservation = Reservation::with('user_id')->get()->latest();
+        $title = 'Delete Data';
+        $text = 'Apakah Anda yakin?';
+        confirmDelete($title,$text);
+
+        return view('backend.reservation.index', compact('reservations'));
     }
 
     /**

@@ -28,6 +28,14 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label>Phone</label>
+                                    <input type="phone" name="phone" 
+                                        class="form-control @error('phone') is-invalid @enderror" 
+                                        value="{{ old('phone') }}" required>
+                                    @error('phone') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                </div>
+
+                                <div class="mb-3">
                                     <label>Password</label>
                                     <input type="password" name="password" 
                                         class="form-control @error('password') is-invalid @enderror" required>

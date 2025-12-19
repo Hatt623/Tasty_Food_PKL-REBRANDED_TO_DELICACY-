@@ -18,12 +18,12 @@
         </section>
         <!-- /akhir Hero Section -->
       
-        <!-- Tasty Food -->
+        <!-- Delicacy -->
         <section class="section-about tasty light-background">
             <div class="container-about">
             <div class="row">
                 <div class="left copy" data-aos="fade-up">
-                <h2>Tasty Food</h2>
+                <h2>Delicacy</h2>
                 <p class="lead" data-aos="fade-up">
                     {{$about->about}}
                 </p>
@@ -54,7 +54,7 @@
             <div class="container-about">
             <div class="row">
                 <div class="left" data-aos="fade-up">
-                    <div class="tile"><img class="img-zoom" src="{{ asset($about->image_vision) }}" alt="tasty food"></div>
+                    <div class="tile"><img class="img-zoom" src="{{ asset($about->image_vision) }}" alt="Delicacy"></div>
                 </div>
                 <div class="right copy">
                 <h2>Visi</h2>
@@ -79,7 +79,7 @@
                 </p>
                 </div>
                 <div class="right" data-aos="fade-up">
-                    <div class="tile"><img class="img-zoom" src="{{ asset($about->image_mission) }}" alt="tasty food"></div>
+                    <div class="tile"><img class="img-zoom" src="{{ asset($about->image_mission) }}" alt="Delicacy"></div>
                 </div>
             </div>
             </div>

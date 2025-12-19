@@ -4,8 +4,8 @@
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="{{route('home')}}" class="text-nowrap logo-img">
-            <h4  class="dark-logo">Tasty Food Admin Panel</h4>
-            <h4 class="light-logo">Tasty Food Admin Panel</h4>
+            <h4  class="dark-logo">Delicacy Admin Panel</h4>
+            <h4 class="light-logo">Delicacy Admin Panel</h4>
             {{-- <img src="{{asset('assets/backend/images/logos/dark-logo.svg')}}" class="dark-logo" alt="Logo-Dark" />
             <img src="{{asset('assets/backend/images/logos/light-logo.svg')}}" class="light-logo" alt="Logo-light" /> --}}
           </a>
@@ -19,7 +19,7 @@
            {{-- Row 1 --}}
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Tasty Food</span>
+              <span class="hide-menu">Delicacy</span>
             </li>
 
            <li class="sidebar-item">
