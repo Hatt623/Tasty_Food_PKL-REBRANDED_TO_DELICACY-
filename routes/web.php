@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\StaffsController;
+use App\Http\Controllers\Backend\ReservationController;
+use App\Http\Controllers\Backend\PaymentController;
 
 use App\Http\Controllers\FrontendController;
 

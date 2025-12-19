@@ -5,7 +5,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
-                        Tambah Produk
+                        Tambah staff
                     </div>
                         <div class="card-body">
                             <form action="{{ route('backend.staff.store') }}" method="post" enctype="multipart/form-data" role="form">

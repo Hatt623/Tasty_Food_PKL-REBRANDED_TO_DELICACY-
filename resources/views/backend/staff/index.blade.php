@@ -11,10 +11,12 @@
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
                         Data staff
-                        <a href="{{ route('backend.staff.create') }}" class="btn btn-info btn-sm" style="color:white; float: right;" 
-                            style="float: right;">
-                            tambah
-                        </a>
+                        @if (auth()->user()->role == 'admin')
+                            <a href="{{ route('backend.staff.create') }}" class="btn btn-info btn-sm" style="color:white; float: right;" 
+                                style="float: right;">
+                                tambah
+                            </a>
+                        @endif
                     </div>
 
                     <div class="card-body">
@@ -37,17 +39,20 @@
                                         <td> {{$data->name}} </td>
                                         <td> {{$data->email}}</td>                                        
                                         <td>
-                                            @if(auth()->id() === $data->id)
+                                            @if(auth()->id() == $data->id || auth()->user()->role == 'admin')
                                                 <a href="{{ route('backend.staff.show', $data->id) }}"
                                                     class="btn btn-sm btn-success">
                                                     Tampilkan
                                                 </a> |
 
-                                                <a href="{{ route('backend.staff.destroy', $data->id) }}"
-                                                    class="btn btn-sm btn-danger"
-                                                    data-confirm-delete="true">
-                                                    Hapus
-                                                </a>
+                                                @if(auth()->user()->role == 'admin' && auth()->id() != $data->id)
+                                                    <a href="{{ route('backend.staff.destroy', $data->id) }}"
+                                                        class="btn btn-sm btn-danger"
+                                                        data-confirm-delete="true">
+                                                        Hapus
+                                                    </a>
+                                                @endif
+                                                
                                             @endif
                                         </td>
 

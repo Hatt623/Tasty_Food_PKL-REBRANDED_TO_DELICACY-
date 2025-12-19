@@ -16,7 +16,7 @@ class StaffsController extends Controller
      */
     public function index()
     {
-        $user = User::where('Admin', 1)->latest()->get();
+        $user = User::whereIn('role', ['admin','staff'])->latest()->get();
         $title = 'Delete Data';
         $text = 'Apakah Anda yakin?';
         confirmDelete($title,$text);

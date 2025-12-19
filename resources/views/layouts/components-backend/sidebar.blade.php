@@ -31,6 +31,15 @@
               </a>
             </li>
 
+            {{-- <li class="sidebar-item">
+              <a class="sidebar-link" href="{{route('backend.reservation.index')}}" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="width: 18px; height: 18px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                </svg>
+                <span class="hide-menu">Reservations</span>
+              </a>
+            </li> --}}
+
              <li class="sidebar-item">
               <a class="sidebar-link" href="{{route('backend.news.index')}}"  aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="width: 18px; height: 18px;">
@@ -58,6 +67,15 @@
               </a>
             </li>
 
+            {{-- <li class="sidebar-item">
+              <a class="sidebar-link" href="{{route('backend.payment.index')}}" aria-expanded="false">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="width: 18px; height: 18px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+                </svg>
+                <span class="hide-menu">Payments</span>
+              </a>
+            </li> --}}
+
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{route('backend.staff.index')}}" aria-expanded="false">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="width: 18px; height: 18px;">
@@ -77,7 +95,7 @@
             </div>
             <div class="john-title">
               <h6 class="mb-0 fs-4 fw-semibold"> {{Auth::user()->name}} </h6>
-              <span class="fs-2">{{Auth::user()->isAdmin == 1 ? 'admin' : ''}}</span>
+              {{-- <span class="fs-2">{{Auth::user()->isAdmin == 1 ? 'admin' : ''}}</span> --}}
             </div>
 
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
