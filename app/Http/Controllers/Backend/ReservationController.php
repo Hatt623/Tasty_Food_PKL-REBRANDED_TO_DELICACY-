@@ -14,28 +14,12 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservation = Reservation::with('user_id')->get()->latest();
+        $reservation = Reservation::with('user')->latest()->get();
         $title = 'Delete Data';
         $text = 'Apakah Anda yakin?';
         confirmDelete($title,$text);
 
-        return view('backend.reservation.index', compact('reservations'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('backend.reservation.index', compact('reservation'));
     }
 
     /**
@@ -43,7 +27,9 @@ class ReservationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // gk dipake dl
+        $reservation = Reservation::with('user')->findOrFail($id);
+        return view('backend.reservation.show', compact('reservation'));
     }
 
     /**
@@ -51,7 +37,8 @@ class ReservationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $reservation = Reservation::with('user')->findOrFail($id);
+        return view('backend.reservation.edit', compact('reservation'));
     }
 
     /**
@@ -59,7 +46,17 @@ class ReservationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $reservation = Reservation::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:pending,confirmed,cancelled,completed',
+        ]);
+
+        $reservation->status = $request->status;
+        $reservation->save();
+
+        toast('Reservasi berhasil di update.', 'success');
+        return redirect()->route('backend.reservation.edit', $reservation->id);
     }
 
     /**
@@ -67,6 +64,10 @@ class ReservationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $reservation = Reservation::findOrFail($id);
+        $reservation->delete();
+
+        toast('Reservasi berhasil dihapus.', 'success');
+        return redirect()->route('backend.reservation.index');
     }
 }

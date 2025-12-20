@@ -80,7 +80,7 @@
                             <div class="col-md-4">
                             <i class="bi bi-envelope-fill fs-1 d-block mb-2"></i>
                             <h6 class="fw-bold mb-1">EMAIL</h6>
-                            <span>tastyfood@gmail.com</span>
+                            <span>Delicacy@gmail.com</span>
                             </div>
 
                             <!-- Phone -->

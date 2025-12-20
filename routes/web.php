@@ -28,6 +28,9 @@ Route::get('/newsRead/{id}', [FrontendController::class, 'newsRead'])->name('new
 
 Route::get('/reservation', [ReservationCSController::class, 'index'])->name('reservation.index');
 Route::post('/reservation', [ReservationCSController::class, 'store'])->name('reservation.store');
+Route::get('/reservationSettings', [ReservationCSController::class, 'reservationSettingsIndex'])->name('reservation.settings.index');
+Route::get('/reservationSettings/{id}', [ReservationCSController::class, 'edit'])->name('reservation.edit');
+Route::put('/reservationSettings/{id}', [ReservationCSController::class, 'update'])->name('reservation.update');
 
 Route::resource('/payment-cs', PaymentCSController::class);
 

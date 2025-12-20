@@ -31,27 +31,44 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($product as $data)
+                                    @foreach ($reservation as $data)
                                     <tr>
                                         <td> {{$loop->iteration}} </td>
                                         <td> {{$data->user->name}} </td>
-                                        <td> {{$data->reservation_date}} </td>
-                                        <td> {{$data->reservation_time}} </td>
+                                        <td> {{\Carbon\Carbon::parse($data->reservation_date)->format('d-m-Y')}} </td>
+                                        <td> {{\Carbon\Carbon::parse($data->reservation_time)->format('H:i')}} </td>
                                         <td> {{$data->guest_count}} </td>
-                                        <td> {{$data->status}} </td>
-                                        <td> {{$data->payment_status}} </td>
                                         <td> 
-                                            <a href="{{ route('backend.product.show', $data->id) }}"
-                                                class="btn btn-sm btn-success">
-                                                Tampilkan
-                                            </a> |
+                                            <span class="badge
+                                                {{ $data->status == 'pending'
+                                                    ? 'bg-warning text-dark'
+                                                    : ($data->status == 'confirmed'
+                                                        ? 'bg-primary'
+                                                        : ($data->status == 'cancelled'
+                                                            ? 'bg-danger'
+                                                            : 'bg-success')) }}">
+                                                {{ ucfirst($data->status) }}
+                                            </span>
+                                        </td>
+                                        
+                                        <td> 
+                                            <span class="badge
+                                                {{ $data->payment_status == 'unpaid'
+                                                    ? 'bg-warning text-dark'
+                                                    : ($data->payment_status == 'paid'
+                                                        ? 'bg-success'
+                                                        : 'bg-danger') }}">
+                                                {{ ucfirst($data->payment_status) }}
+                                            </span>
+                                        </td>
 
-                                            <a href="{{ route('backend.product.edit', $data->id) }}"
+                                        <td> 
+                                            <a href="{{ route('backend.reservation.edit', $data->id) }}"
                                                 class="btn btn-sm btn-warning">
                                                 Ubah
                                             </a> |
 
-                                            <a href="{{ route('backend.product.destroy', $data->id) }}"
+                                            <a href="{{ route('backend.reservation.destroy', $data->id) }}"
                                                 class="btn btn-sm btn-danger"
                                                 data-confirm-delete="true">
                                                 Hapus

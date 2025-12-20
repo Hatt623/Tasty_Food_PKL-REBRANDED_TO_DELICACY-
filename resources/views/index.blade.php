@@ -34,6 +34,12 @@
            
             <h5>{{$about->about}}</h5>
             <hr data-aos="fade-up" class="section-title-hr">
+           
+            <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="{{route('reservation.index')}}" class="btn-load-more">
+                    BUAT RESERVASI
+                </a>
+            </div>
         </div>
         <!-- Akhir Tentang kami -->
 
@@ -103,7 +109,7 @@
                                     class="stretched-link text-decoration-none">
                                     Baca selengkapnya
                                     </a>
-                                     <button type="button" class="btn-link-more btn btn-sm btn-light ">
+                                    <button type="button" class="btn-link-more btn btn-sm btn-light ">
                                         <i class="bi bi-three-dots"></i>
                                     </button>
                                 </div>
