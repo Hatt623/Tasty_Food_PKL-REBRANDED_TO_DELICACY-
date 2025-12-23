@@ -19,22 +19,23 @@
                                 <thead>
                                     <tr>
                                         <th> No </th>
-                                        <th> Nama Customer </th>
+                                        <th> Kode Reservasi </th>
                                         <th> Tanggal Reservasi </th>
                                         <th> Waktu Reservasi </th>
                                         <th> Jumlah Orang </th>
                                         <th> Status </th>
                                         <th> Status Pembayaran</th>
-                                        <th> Aksi </th>
+                                        <th></th>
+                                        <th>Aksi</th>
+                                        <th></th>
                                     </tr>
-
                                 </thead>
 
                                 <tbody>
                                     @foreach ($reservation as $data)
                                     <tr>
                                         <td> {{$loop->iteration}} </td>
-                                        <td> {{$data->user->name}} </td>
+                                        <td> {{$data->reserve_code}} </td>
                                         <td> {{\Carbon\Carbon::parse($data->reservation_date)->format('d-m-Y')}} </td>
                                         <td> {{\Carbon\Carbon::parse($data->reservation_time)->format('H:i')}} </td>
                                         <td> {{$data->guest_count}} </td>
@@ -62,19 +63,27 @@
                                             </span>
                                         </td>
 
-                                        <td> 
+                                        <td>
+                                            <a href="{{ route('backend.reservation.show', $data->id) }}"
+                                                class="btn btn-sm btn-info">
+                                                Lihat
+                                            </a>                                             
+                                        </td>
+
+                                        <td>
                                             <a href="{{ route('backend.reservation.edit', $data->id) }}"
                                                 class="btn btn-sm btn-warning">
                                                 Ubah
-                                            </a> |
+                                            </a> 
+                                        </td>
 
+                                        <td>
                                             <a href="{{ route('backend.reservation.destroy', $data->id) }}"
                                                 class="btn btn-sm btn-danger"
                                                 data-confirm-delete="true">
                                                 Hapus
                                             </a>
                                         </td>
-
                                     </tr>
                                     @endforeach
                                 </tbody>

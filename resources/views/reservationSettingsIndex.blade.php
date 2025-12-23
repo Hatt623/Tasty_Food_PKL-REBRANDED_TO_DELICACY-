@@ -35,17 +35,19 @@
                             <table class="table table-striped table-bordered align-middle" id="reservationTable">
                                 <thead class="table-light">
                                     <tr>
+                                        <th>Kode Reservasi</th>
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <th>Jumlah Tamu</th>
-                                        <th>Status</th>
-                                        <th>Pembayaran</th>
+                                        <th>Status Reservasi</th>
+                                        <th>Status Pembayaran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($reservations as $reservation)
                                         <tr>
+                                            <td>{{ $reservation->reserve_code }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reservation->reservation_date)->format('d-m-Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reservation->reservation_time)->format('H:i') }} WIB</td>
                                             <td>{{ $reservation->guest_count }}</td>

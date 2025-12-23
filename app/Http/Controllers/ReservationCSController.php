@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\User;
+use Illuminate\Support\Str;
+
 use Auth;
+use Carbon\Carbon;
 
 class ReservationCSController extends Controller
 {
@@ -44,23 +47,33 @@ class ReservationCSController extends Controller
         ]);
 
        
-        $dayOfWeek = \Carbon\Carbon::parse($request->reservation_date)->dayOfWeek; 
+        $dayOfWeek = Carbon::parse($request->reservation_date)->dayOfWeek; 
         if ($dayOfWeek == 0) {
             toast('Reservasi tidak tersedia di hari Minggu','error');
             return redirect()->back()->withInput();
         }
 
-        $time = \Carbon\Carbon::createFromFormat('H:i', $request->reservation_time);
-        $start = \Carbon\Carbon::createFromTime(8, 0);   
-        $end   = \Carbon\Carbon::createFromTime(21, 30); 
+        $time = Carbon::createFromFormat('H:i', $request->reservation_time);
+        $start = Carbon::createFromTime(8, 0);   
+        $end   = Carbon::createFromTime(21, 30); 
 
         if ($time->lt($start) || $time->gt($end)) {
             toast('Reservasi hanya tersedia antara 08:00 - 21:30','error');
             return redirect()->back()->withInput();
         }
 
+        $reservationDateTime = Carbon::parse($request->reservation_date . ' ' . $request->reservation_time, );
+        $now = Carbon::now();
+
+        if ($reservationDateTime->isToday() && $reservationDateTime->lt($now)) {
+            toast('Reservasi tidak boleh di waktu yang sudah lewat hari ini','error');
+            return redirect()->back()->withInput();
+        }
+
+
         $reservation = new Reservation();
         $reservation ->user_id          = Auth::id();
+        $reservation ->reserve_code       = 'RSV-' . strtoupper(Str::random(8));
         $reservation ->reservation_date = $request->reservation_date;
         $reservation ->reservation_time = $request->reservation_time;
         $reservation ->guest_count      = $request->guest_count;
@@ -108,18 +121,26 @@ class ReservationCSController extends Controller
         'guest_count' => 'required|integer|min:1',
         ]);
        
-        $dayOfWeek = \Carbon\Carbon::parse($request->reservation_date)->dayOfWeek; 
+        $dayOfWeek = Carbon::parse($request->reservation_date)->dayOfWeek; 
         if ($dayOfWeek == 0) {
             toast('Reservasi tidak tersedia di hari Minggu','error');
             return redirect()->back()->withInput();
         }
 
-        $time = \Carbon\Carbon::createFromFormat('H:i', $request->reservation_time);
-        $start = \Carbon\Carbon::createFromTime(8, 0);   
-        $end   = \Carbon\Carbon::createFromTime(21, 30); 
+        $time = Carbon::createFromFormat('H:i', $request->reservation_time);
+        $start = Carbon::createFromTime(8, 0);   
+        $end   = Carbon::createFromTime(21, 30); 
 
         if ($time->lt($start) || $time->gt($end)) {
             toast('Reservasi hanya tersedia antara 08:00 - 21:30','error');
+            return redirect()->back()->withInput();
+        }
+
+        $reservationDateTime = Carbon::parse($request->reservation_date . ' ' . $request->reservation_time, );
+        $now = Carbon::now();
+
+        if ($reservationDateTime->isToday() && $reservationDateTime->lt($now)) {
+            toast('Reservasi tidak boleh di waktu yang sudah lewat hari ini','error');
             return redirect()->back()->withInput();
         }
 

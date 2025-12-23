@@ -85,41 +85,6 @@
                         </div>
 
                         <hr>
-
-                        <!-- Ubah Status -->
-                        <div class="mb-4">
-                            <h6 class="text-uppercase fw-bold text-muted mb-3">Ubah status</h6>
-                            <form action="{{ route('backend.reservation.update', $reservation->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="row g-2">
-                                    <div class="col-md-10">
-                                        <select name="status" class="form-select" required>
-                                            <option value="pending" {{ $reservation->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                            <option value="confirmed" {{ $reservation->status == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
-                                            <option value="cancelled" {{ $reservation->status == 'cancelled' ? 'selected' : '' }}>Cancel</option>
-                                            <option value="completed" {{ $reservation->status == 'completed' ? 'selected' : '' }}>Completed</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row g-2 mt-3">
-                                    <div class="col-md-10">
-                                        <select name="payment_status" class="form-select" required>
-                                            <option value="paid" {{ $reservation->payment_status == 'paid' ? 'selected' : '' }}>Paid</option>
-                                            <option value="unpaid" {{ $reservation->payment_status == 'unpaid' ? 'selected' : '' }}>Unpaid</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mt-3">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-save"></i> Simpan Perubahan
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
                         <a href="{{ route('backend.reservation.index') }}" class="btn btn-secondary">
                             <i class="fas fa-arrow-left"></i> Kembali ke Data Reservasi
                         </a>
